@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+  <title>Mahasiswa</title>
+  <style>
+    .action-buttons {
+      white-space: nowrap;
+    }
+
+    .modal-dialog {
+      max-width: 600px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Mahasiswa</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+  <div class="container-fluid text-center my-4">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="mb-4">TABEL MAHASISWA</h3>
+        <div class="mb-3 text-right">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
+            Tambah Mahasiswa
+          </button>
+        </div>
+        <table align="left" border="1" class="table" style="text-align: center;">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">NO</th>
+              <th scope="col">NIM</th>
+              <th scope="col">NAMA</th>
+              <th scope="col">TEMPAT</th>
+              <th scope="col">TANGGAL LAHIR</th>
+              <th scope="col">GENDER</th>
+              <th scope="col">EMAIL</th>
+              <th scope="col">TELEPON</th>
+              <th scope="col">AKSI</th>
+            </tr>
+          </thead>
+          <tbody>
+            DATA_TABEL
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Modal -->
+  <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addModalLabel">Tambah Mahasiswa</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="" method="POST">
+          <div class="modal-body">
+            <div class="form-group">
+              <label>NIM</label>
+              <input type="text" class="form-control" name="nim" required>
+            </div>
+            <div class="form-group">
+              <label>Nama</label>
+              <input type="text" class="form-control" name="nama" required>
+            </div>
+            <div class="form-group">
+              <label>Tempat</label>
+              <input type="text" class="form-control" name="tempat" required>
+            </div>
+            <div class="form-group">
+              <label>Tanggal Lahir</label>
+              <input type="date" class="form-control" name="tl" required>
+            </div>
+            <div class="form-group">
+              <label>Gender</label>
+              <select class="form-control" name="gender" required>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" class="form-control" name="email" required>
+            </div>
+            <div class="form-group">
+              <label>Telepon</label>
+              <input type="tel" class="form-control" name="telp" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            <button type="submit" class="btn btn-primary" name="add">Simpan</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Edit Mahasiswa</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="" method="POST">
+          <div class="modal-body">
+            <input type="hidden" name="id" id="edit_id">
+            <div class="form-group">
+              <label>NIM</label>
+              <input type="text" class="form-control" name="nim" id="edit_nim" required>
+            </div>
+            <div class="form-group">
+              <label>Nama</label>
+              <input type="text" class="form-control" name="nama" id="edit_nama" required>
+            </div>
+            <div class="form-group">
+              <label>Tempat</label>
+              <input type="text" class="form-control" name="tempat" id="edit_tempat" required>
+            </div>
+            <div class="form-group">
+              <label>Tanggal Lahir</label>
+              <input type="date" class="form-control" name="tl" id="edit_tl" required>
+            </div>
+            <div class="form-group">
+              <label>Gender</label>
+              <select class="form-control" name="gender" id="edit_gender" required>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" class="form-control" name="email" id="edit_email" required>
+            </div>
+            <div class="form-group">
+              <label>Telepon</label>
+              <input type="tel" class="form-control" name="telp" id="edit_telp" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            <button type="submit" class="btn btn-primary" name="update">Update</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Hapus Mahasiswa</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="" method="POST">
+          <div class="modal-body">
+            <input type="hidden" name="delete_id" id="delete_id">
+            <p>Apakah anda yakin ingin menghapus data mahasiswa ini?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+            <button type="submit" class="btn btn-danger" name="delete">Ya</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+  <script>
+    // Function to populate edit modal
+    function editMahasiswa(id, nim, nama, tempat, tl, gender, email, telp) {
+      document.getElementById('edit_id').value = id;
+      document.getElementById('edit_nim').value = nim;
+      document.getElementById('edit_nama').value = nama;
+      document.getElementById('edit_tempat').value = tempat;
+      document.getElementById('edit_tl').value = tl;
+      document.getElementById('edit_gender').value = gender;
+      document.getElementById('edit_email').value = email;
+      document.getElementById('edit_telp').value = telp;
+    }
+
+    // Function to set delete ID
+    function deleteMahasiswa(id) {
+      document.getElementById('delete_id').value = id;
+    }
+  </script>
+</body>
+
+</html>
